@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface DownloaderImgsDao{
+interface DownloadedImgsDao{
     @Query("Select * FROM Downloaded")
     fun getAll():List<Downloaded>
     @Insert

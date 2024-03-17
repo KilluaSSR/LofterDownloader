@@ -1,3 +1,4 @@
+package  com.killua.mediadownloader.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
@@ -11,5 +12,5 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    private fun provideContext(@ApplicationContext context: Context): Context = context
+    fun provideContext(@ApplicationContext context: Context): Context = context
 }
