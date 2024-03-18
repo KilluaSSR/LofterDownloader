@@ -1,6 +1,7 @@
 package com.killua.mediadownloader
 
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,6 +16,7 @@ class LofterDownloadViewModel @Inject constructor(
 ) : ViewModel() {
     fun loadAndSaveImgs(url:String)=viewModelScope.launch {
         val imgUrls = imageLoader.fetchImgURLs(url)
+
         imgUrls.forEach { imageUrl->
             val bitmap = imageDownloader.downloadImage(imageUrl)
             bitmap?.let {

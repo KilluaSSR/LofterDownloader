@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.killua.mediadownloader"
-    >
-
+    tools:ignore="SelectedPhotoAccess">
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".MediaDownloaderApp"
         android:allowBackup="true"

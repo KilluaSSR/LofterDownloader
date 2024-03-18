@@ -11,8 +11,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ImageDownloader @Inject constructor(private val context: Context) {
-
+class ImageDownloader @Inject constructor() {
     suspend fun downloadImage(imageURL: String): Bitmap? = withContext(Dispatchers.IO) {
         try {
             val url = URL(imageURL)

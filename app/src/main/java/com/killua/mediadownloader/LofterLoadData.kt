@@ -1,10 +1,10 @@
 package com.killua.mediadownloader
 
 import android.content.Context
-import android.widget.Toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -19,14 +19,14 @@ class LofterLoadData @Inject constructor(private val context: Context)
 {
     suspend fun fetchImgURLs(url:String):Set<String>{
         val resultSet = HashSet<String>()
-        CoroutineScope(Dispatchers.IO).launch {
-            val url = URL(url)
-            val connection = url.openConnection() as HttpURLConnection
+        withContext(Dispatchers.IO){
+            var link = URL(url)
+            val connection = link.openConnection() as HttpURLConnection
             try {
                 val response = StringBuilder()
                 connection.apply {
                     setRequestProperty("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36")
-                    setRequestProperty("Referer", url.toString())
+                    setRequestProperty("Referer", link.toString())
                     requestMethod = "GET"
                     connectTimeout = 8000
                     readTimeout = 8000

@@ -16,14 +16,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.killua.mediadownloader.LofterDownloadViewModel
+import com.killua.mediadownloader.LofterLoadData
 import com.killua.mediadownloader.screens.Downloaded
 import com.killua.mediadownloader.screens.Settings
 import com.killua.mediadownloader.screens.Start
+import com.killua.mediadownloader.ui.AppTopBar
 
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
     Scaffold (
+        topBar = { AppTopBar()},
         bottomBar = {
             NavigationBar {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()

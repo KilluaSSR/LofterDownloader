@@ -1,5 +1,8 @@
 package  com.killua.mediadownloader.di
 import android.content.Context
+import com.killua.mediadownloader.ImageDownloader
+import com.killua.mediadownloader.ImageSaver
+import com.killua.mediadownloader.LofterLoadData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
