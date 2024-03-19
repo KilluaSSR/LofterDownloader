@@ -36,29 +36,34 @@ fun Start(lofterDownloadViewModel: LofterDownloadViewModel = hiltViewModel()){
     }
     val coroutineScope = rememberCoroutineScope()
     val keyboardController = LocalSoftwareKeyboardController.current
-    Column(modifier = Modifier.fillMaxSize()) {
-        WelcomeText()
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        )
-        {
-            DownloadInputText(urlInput = urlInput) { urlInput = it }
-            StartBotton {
-                keyboardController?.hide()
-                if(urlInput.isEmpty()){
-                    Toast.makeText(localContext,"Please enter someting before clicking me",Toast.LENGTH_SHORT).show()
-                }else{
-                    coroutineScope.launch {
-                        lofterDownloadViewModel.loadAndSaveImgs(urlInput)
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column (horizontalAlignment = Alignment.CenterHorizontally){
+            WelcomeText()
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            )
+            {
+                DownloadInputText(urlInput = urlInput) { urlInput = it }
+                StartBotton {
+                    keyboardController?.hide()
+                    if(urlInput.isEmpty()){
+                        Toast.makeText(localContext,"Please enter someting before clicking me",Toast.LENGTH_SHORT).show()
+                    }else{
+                        coroutineScope.launch {
+                            val currentInput = urlInput
+                            urlInput = ""
+                            lofterDownloadViewModel.loadAndSaveImgs(urlInput)
+                        }
+
                     }
-                    //urlInput = ""
+
                 }
 
             }
-
         }
+
+
     }
 
 }

@@ -1,5 +1,8 @@
 package com.killua.mediadownloader.ui.items.StartPage
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -13,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -36,30 +40,33 @@ fun WelcomeText(){
     val LightBlue = Color(76,145,201)
     val Purple = Color(206,102,183)
     val gradientColors = listOf(Cyan, LightBlue, Purple /*...*/)
-    Text(
-        text = "Hi there!👋",
-        fontSize = 50.sp,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier
-            .padding(start = 30.dp)
-            .padding(end = 30.dp),
-        style = TextStyle(
-            brush = Brush.linearGradient(
-                colors = gradientColors
+    Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.Start) {
+        Text(
+            text = "Hi there!👋",
+            fontSize = 50.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(start = 30.dp)
+                .padding(end = 30.dp),
+            style = TextStyle(
+                brush = Brush.linearGradient(
+                    colors = gradientColors
+                )
             )
         )
-    )
-    Text(
-        text = "What do you want to \n download today?",
-        fontSize = 21.sp,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(start = 30.dp),
-        style = TextStyle(
-            brush = Brush.linearGradient(
-                colors = gradientColors
+        Text(
+            text = "What do you want to \n download today?",
+            fontSize = 21.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 30.dp),
+            style = TextStyle(
+                brush = Brush.linearGradient(
+                    colors = gradientColors
+                )
             )
         )
-    )
+    }
+
 }
 
 
