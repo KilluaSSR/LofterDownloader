@@ -64,6 +64,7 @@ dependencies {
     implementation("com.github.alorma.compose-settings:ui-tiles:2.1.0")
     implementation("com.github.alorma.compose-settings:ui-tiles-extended:2.1.0")
     implementation("com.google.dagger:hilt-android:2.51")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation(libs.androidx.core.ktx)
     implementation("androidx.compose.ui:ui-text-google-fonts:1.6.1")

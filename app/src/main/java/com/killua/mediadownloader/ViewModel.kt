@@ -15,12 +15,11 @@ class LofterDownloadViewModel @Inject constructor(
     private val imageLoader: LofterLoadData
 ) : ViewModel() {
     fun loadAndSaveImgs(url:String)=viewModelScope.launch {
-        val imgUrls = imageLoader.fetchImgURLs(url)
-
-        imgUrls.forEach { imageUrl->
+        val fetchResult = imageLoader.fetchImgURLs(url)
+        fetchResult.imgUrls.forEach { imageUrl->
             val bitmap = imageDownloader.downloadImage(imageUrl)
             bitmap?.let {
-                imageSaver.saveImageToGallery(it)
+                imageSaver.saveImageToGallery(it,imageUrl,fetchResult.title,fetchResult.author)
             }
         }
     }

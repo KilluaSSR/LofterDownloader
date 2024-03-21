@@ -52,7 +52,6 @@ fun GeneralOptionsUI(){
     ){
         GeneralSettingsItem()
         ProfileCardUI()
-        DropdownMenuExample()
     }
 }
 @Composable

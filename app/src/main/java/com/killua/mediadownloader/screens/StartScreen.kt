@@ -52,8 +52,8 @@ fun Start(lofterDownloadViewModel: LofterDownloadViewModel = hiltViewModel()){
                     }else{
                         coroutineScope.launch {
                             val currentInput = urlInput
-                            urlInput = ""
                             lofterDownloadViewModel.loadAndSaveImgs(urlInput)
+                            //urlInput = ""
                         }
 
                     }

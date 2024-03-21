@@ -6,6 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Downloaded(
-    @PrimaryKey val link: String,
+    @PrimaryKey(autoGenerate = true) val id:Int  = 0,
+    @ColumnInfo(name = "title")  val title: String,
+    @ColumnInfo(name = "url") val url:String,
+    @ColumnInfo(name = "author") val author:String,
+    @ColumnInfo(name = "uri") val uri:String,
     @ColumnInfo(name = "date") val date:Long
 )
