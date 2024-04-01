@@ -44,17 +44,18 @@ class ImageSaver @Inject constructor(
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
                     stream.flush()
                 }
+                uri.let {
+                    val downloadedImage = Downloaded(
+                        title =  title!!,
+                        date = System.currentTimeMillis(),
+                        author = author!!,
+                        url = url,
+                        uri = uri.toString()
+                    )
+                    downloadedImgsDao.insertAll(downloadedImage)
+                }
             }
-            uri?.let {
-                val downloadedImage = Downloaded(
-                    title =  title!!,
-                    date = System.currentTimeMillis(),
-                    author = author!!,
-                    url = url,
-                    uri = uri.toString()
-                )
-                downloadedImgsDao.insertAll(downloadedImage)
-            }
+
             true
         } catch (e: Exception) {
             e.printStackTrace()

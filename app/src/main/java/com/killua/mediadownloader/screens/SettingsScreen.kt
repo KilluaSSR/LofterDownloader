@@ -18,12 +18,6 @@ fun Settings(){
         modifier = Modifier.fillMaxSize(),
     )
     {
-//        Text(
-//            text = Destinations.Settings.name,
-//            fontFamily = FontFamily.Serif,
-//            fontSize = 22.sp
-//        )
-
         GeneralOptionsUI()
     }
 }

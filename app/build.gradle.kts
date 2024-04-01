@@ -57,6 +57,7 @@ dependencies {
     val nav_version = "2.7.7"
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+    implementation(libs.coil.compose)
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("androidx.hilt:hilt-navigation:1.2.0")
     ksp("com.google.dagger:hilt-android-compiler:2.51")
